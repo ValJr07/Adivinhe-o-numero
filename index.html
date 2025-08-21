@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adivinhe o numero</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Adivinhe o numero</h1>
@@ -13,7 +14,10 @@
         <button id="but" onclick="contador(); NumRandom()">Tentativa</button>
         <div id="contador" >Tentativas: 0</div> <br>
         <div id="error"></div><br>
-        <div id="NumUtilizados"></div>
+        <div id="NumUtilizados"></div><br>
+
+        <button onclick="Jogarnovamente()" id="JogarN">Deseja jogar novamente?</button>
+
 
     </div>
 </body>
