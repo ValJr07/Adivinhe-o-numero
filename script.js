@@ -2,17 +2,22 @@ let cont = 0
 let NumR = parseInt(Math.random() * 20)
 const lista = []
 const button = document.getElementById("but")
-const stat = document.getElementById("error")
-const JogarN = document.getElementById("JogarN")
 
 function contador(){
     cont+=1
     document.getElementById("contador").textContent = "Tentativas: " + cont
-
+    const JogarN = document.getElementById("JogarN")
     //modificar, quando chegar a 10 tentativas tem que zerar e aparecer um botão com novo jogo
     if(cont == 10){
             JogarN.style.display = "block"
     }
+}
+
+function Sumir(){
+    cont=0
+    NumR = parseInt(Math.random() * 20)
+    const JogarN = document.getElementById("JogarN")
+    JogarN.style.display = "none"
 }
 
 function Jogarnovamente(){
@@ -24,6 +29,7 @@ function Jogarnovamente(){
 }
 
 function NumRandom(){
+    const stat = document.getElementById("error")
     let input = parseInt(document.getElementById("inp").value)
     if (input != NumR){
         lista.push(input)
