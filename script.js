@@ -3,22 +3,30 @@ let NumR = parseInt(Math.random() * 20)
 const lista = []
 const button = document.getElementById("but")
 
-function contador(){
-    cont+=1
-    document.getElementById("contador").textContent = "Tentativas: " + cont
+const contador = function(){
+    const contar = document.getElementById("contador")
+    const stat = document.getElementById("error")
+    let input = parseInt(document.getElementById("inp").value)
     const JogarN = document.getElementById("JogarN")
     //modificar, quando chegar a 10 tentativas tem que zerar e aparecer um botão com novo jogo
     if(cont == 10){
             JogarN.style.display = "block"
     }
+    if(input>20 || input<0){
+        stat.textContent = "O numero aleatorio está entre 0 e 20"
+    }else{
+        cont+=1
+        contar.textContent = "Tentativas: " + cont
+    }
 }
 
-function Sumir(){
+const Sumir = function(){
     cont=0
     NumR = parseInt(Math.random() * 20)
     const JogarN = document.getElementById("JogarN")
-    JogarN.style.display = "none"
+    return JogarN.style.display = "none"
 }
+
 
 function Jogarnovamente(){
     let input = parseInt(document.getElementById("inp").value)
@@ -36,12 +44,13 @@ function NumRandom(){
         const listalterada = Array.from(new Set(lista))
         document.getElementById("NumUtilizados").textContent = "Já foram utilizados: " + listalterada.join(", ")
         if(input> NumR){
-            stat.textContent = "Errou, tente novamente. O numero é menor." + NumR
+            stat.textContent = "Errou, tente novamente. O numero é menor."
         }else{
-            stat.textContent = "Errou, tente novamente. O numero é maior." + NumR
+            stat.textContent = "Errou, tente novamente. O numero é maior." 
         }
     } else{
-        document.getElementById("error").textContent = "Acertou, uhuuuuuuul"
-        
+        document.getElementById("error").textContent = "Acertou, uhuuuuuuul"   
+        JogarN.style.display = "block"
+    
     }
 }
