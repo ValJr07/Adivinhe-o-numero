@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Adivinhe o numero</h1>
+    <h1>Adivinhe o número</h1>
+
     <div>
-        <input type="number" id="inp">
-        <button id="but" onclick="contador(); NumRandom(); ">Tentativa</button>
-        <div id="contador" >Tentativas: 0</div> <br>
+        <input type="number" id="inp" placeholder="Digite um número de 0 a 20">
+        <button id="but" onclick="contador(); NumRandom();">Tentar</button>
+
+        <div id="contador">Tentativas: 0</div><br>
         <div id="error"></div><br>
         <div id="NumUtilizados"></div><br>
 
-        <button onclick="Jogarnovamente(); Sumir()" id="JogarN">Deseja jogar novamente?</button>
-
-
+        <button onclick="Jogarnovamente(); Sumir();" id="JogarN">Novo Jogo</button>
     </div>
 </body>
 </html>

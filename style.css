@@ -2,11 +2,34 @@
 
 * {
   font-family: Montserrat, sans-serif;
-  align-content: center;
-  top: 50%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  background: #f5f5f5;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+input {
+  padding: 10px;
+  width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
 }
 
 button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
   text-transform: uppercase;
   color: white;
   background-color: black;
@@ -14,12 +37,31 @@ button {
   cursor: pointer;
   border-radius: 4px;
   width: 200px;
+  transition: 0.3s;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   text-decoration: underline;
+  background-color: #333;
 }
 
-#JogarN{
-    display: none;
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+#contador,
+#error,
+#NumUtilizados {
+  margin: 10px 0;
+}
+
+#error {
+  font-weight: bold;
+  color: red;
+}
+
+#JogarN {
+  display: none;
+  background-color: #007bff;
 }

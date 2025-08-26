@@ -1,36 +1,50 @@
 let cont = 0
-let NumR = parseInt(Math.random() * 20)
+let NumR = parseInt(Math.random() * 21)
 const lista = []
 const button = document.getElementById("but")
 
 const contador = function(){
     const contar = document.getElementById("contador")
-    const stat = document.getElementById("error")
-    let input = parseInt(document.getElementById("inp").value)
+    const input = parseInt(document.getElementById("inp").value)
     const JogarN = document.getElementById("JogarN")
+    const stat = document.getElementById("error") // <-- adiciona isso
+    const button = document.getElementById("but")
+
+    cont+=1
+    contar.textContent = "Tentativas: " + cont
+
     //modificar, quando chegar a 10 tentativas tem que zerar e aparecer um botão com novo jogo
-    if(cont == 10){
-            JogarN.style.display = "block"
+    if(cont >= 10){
+        JogarN.style.display = "block"
+        button.disabled = true
     }
+    
+    if(isNaN(input)){
+        stat.textContent = "Digite um número válido!"
+        return
+    }
+    
+}
+
+const VerificaNum = function(){
+    const input = parseInt(document.getElementById("inp").value)
     if(input>20 || input<0){
+        const stat = document.getElementById("error") 
         stat.textContent = "O numero aleatorio está entre 0 e 20"
-    }else{
-        cont+=1
-        contar.textContent = "Tentativas: " + cont
     }
 }
 
 const Sumir = function(){
     cont=0
-    NumR = parseInt(Math.random() * 20)
+    lista.length = 0
+    NumR = parseInt(Math.random() * 21)
     const JogarN = document.getElementById("JogarN")
     return JogarN.style.display = "none"
 }
 
 
 function Jogarnovamente(){
-    let input = parseInt(document.getElementById("inp").value)
-    input = ""
+    button.disabled = false
     document.getElementById("NumUtilizados").textContent = ""
     document.getElementById("error").textContent = ""
     document.getElementById("contador").textContent = "Tentativas: " + 0
@@ -53,4 +67,6 @@ function NumRandom(){
         JogarN.style.display = "block"
     
     }
+    VerificaNum()
+
 }
