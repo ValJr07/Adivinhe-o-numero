@@ -18,36 +18,26 @@ const contador = function(){
         JogarN.style.display = "block"
         button.disabled = true
     }
-    
-    if(isNaN(input)){
-        stat.textContent = "Digite um número válido!"
-        return
-    }
-    
 }
 
-const VerificaNum = function(){
-    const input = parseInt(document.getElementById("inp").value)
-    if(input>20 || input<0){
-        const stat = document.getElementById("error") 
-        stat.textContent = "O numero aleatorio está entre 0 e 20"
-    }
-}
+
 
 const Sumir = function(){
     cont=0
     lista.length = 0
     NumR = parseInt(Math.random() * 21)
     const JogarN = document.getElementById("JogarN")
-    return JogarN.style.display = "none"
+    JogarN.style.display = "none"
+    document.getElementById("but").disabled = false
 }
 
 
 function Jogarnovamente(){
-    button.disabled = false
     document.getElementById("NumUtilizados").textContent = ""
     document.getElementById("error").textContent = ""
     document.getElementById("contador").textContent = "Tentativas: " + 0
+    document.getElementById("inp").value = ""
+    Sumir()
 }
 
 function NumRandom(){
@@ -67,6 +57,16 @@ function NumRandom(){
         JogarN.style.display = "block"
     
     }
-    VerificaNum()
+    if(isNaN(input)){
+        cont-=1
+        stat.textContent = "Digite um número válido!"
+        
+    }
+
+    if(input>20 || input<0){
+        cont-=1
+        const stat = document.getElementById("error") 
+        stat.textContent = "O numero aleatorio está entre 0 e 20"
+    }
 
 }
